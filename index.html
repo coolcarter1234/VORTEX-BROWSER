@@ -7,17 +7,19 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
         .browser-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
         .navigation-bar {
+            background-color: #f0f0f0;
+            padding: 10px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
         }
         .navigation-bar input[type="text"] {
             flex: 1;
@@ -30,10 +32,14 @@
             cursor: pointer;
         }
         .viewport {
-            border: 1px solid #ccc;
-            height: 500px;
+            flex: 1;
             overflow: auto;
-            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -42,14 +48,15 @@
         <div class="navigation-bar">
             <button onclick="navigateBack()">Back</button>
             <button onclick="navigateForward()">Forward</button>
-            <input type="text" id="urlInput" placeholder="Enter URL">
+            <input type="text" id="urlInput" placeholder="Enter URL" value="https://www.google.com">
             <button onclick="navigateToUrl()">Go</button>
         </div>
         <div class="viewport" id="viewport">
-            <!-- Web page content will be loaded here -->
+            <iframe id="webFrame" src="https://www.google.com"></iframe>
         </div>
     </div>
 
     <script src="main.js"></script>
 </body>
 </html>
+
